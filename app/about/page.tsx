@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 };
 
 const heroImages = [
-  "/background-img/court_1_EF26173A.jpeg",
-  "/background-img/court_2_28FB5B01.jpeg",
-  "/background-img/court_3_3CC1FE4D.jpeg",
-  "/background-img/4_F8AA7A4B.jpeg",
-  "/background-img/5_C276EF44.jpeg",
+  "/background-img/3.jpeg",
+  "/background-img/6.jpeg",
+  "/background-img/7.jpeg",
+  "/background-img/4.jpeg",
+  "/background-img/5.jpeg",
 ];
 
 const values = [

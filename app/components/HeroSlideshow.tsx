@@ -9,7 +9,7 @@ interface HeroSlideshowProps {
   heading: string;
   subheading?: string;
   children?: React.ReactNode;
-  interval?: number; // ms between slides, default 5000
+  interval?: number; // ms between slides, default 6000
 }
 
 export default function HeroSlideshow({
@@ -18,53 +18,40 @@ export default function HeroSlideshow({
   heading,
   subheading,
   children,
-  interval = 5000,
+  interval = 6000,
 }: HeroSlideshowProps) {
   const [current, setCurrent] = useState(0);
-  const [prev, setPrev] = useState<number | null>(null);
-  const [fading, setFading] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setPrev(current);
-      setFading(true);
-      const next = (current + 1) % images.length;
-      setCurrent(next);
-      // After the crossfade duration, clear the prev layer
-      const clear = setTimeout(() => {
-        setPrev(null);
-        setFading(false);
-      }, 1000);
-      return () => clearTimeout(clear);
+      setCurrent((prev) => (prev + 1) % images.length);
     }, interval);
-
     return () => clearInterval(timer);
-  }, [current, images.length, interval]);
+  }, [images.length, interval]);
 
   return (
     <section className="relative flex min-h-[92vh] items-center justify-center overflow-hidden">
-      {/* Background layers */}
-      {images.map((src, i) => {
-        const isActive = i === current;
-        const isPrev = i === prev && fading;
-        if (!isActive && !isPrev) return null;
-        return (
-          <div
-            key={src}
-            className="absolute inset-0 transition-opacity duration-1000"
-            style={{ opacity: isActive ? 1 : 0, zIndex: isActive ? 1 : 0 }}
-          >
-            <Image
-              src={src}
-              alt=""
-              fill
-              priority={i === 0}
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
-        );
-      })}
+      {/* Background stack — all images always mounted, active one fades in */}
+      {images.map((src, i) => (
+        <div
+          key={src}
+          className="absolute inset-0"
+          style={{
+            opacity: i === current ? 1 : 0,
+            transition: "opacity 1.4s ease-in-out",
+            zIndex: i === current ? 1 : 0,
+          }}
+        >
+          <Image
+            src={src}
+            alt=""
+            fill
+            priority={i === 0}
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      ))}
 
       {/* Dark overlay */}
       <div className="absolute inset-0 z-10 bg-black/55" />
@@ -101,19 +88,14 @@ export default function HeroSlideshow({
         {images.map((_, i) => (
           <button
             key={i}
-            onClick={() => {
-              setPrev(current);
-              setFading(true);
-              setCurrent(i);
-              setTimeout(() => {
-                setPrev(null);
-                setFading(false);
-              }, 1000);
-            }}
+            onClick={() => setCurrent(i)}
             aria-label={`Go to slide ${i + 1}`}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === current ? "w-8 bg-white" : "w-2 bg-white/40"
-            }`}
+            className="h-1.5 rounded-full transition-all duration-500"
+            style={{
+              width: i === current ? "2rem" : "0.5rem",
+              backgroundColor:
+                i === current ? "white" : "rgba(255,255,255,0.35)",
+            }}
           />
         ))}
       </div>
