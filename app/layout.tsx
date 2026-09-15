@@ -18,6 +18,19 @@ export const metadata: Metadata = {
   title: "Climax Group Limited",
   description:
     "Climax Group Limited is a real estate partnership building trusted, long-term property ventures.",
+  icons: {
+    icon: [
+      { url: "/favicon_io/favicon.ico" },
+      { url: "/favicon_io/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon_io/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/favicon_io/apple-touch-icon.png" },
+    ],
+    other: [
+      { rel: "manifest", url: "/favicon_io/site.webmanifest" },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
