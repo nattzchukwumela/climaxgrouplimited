@@ -2,15 +2,15 @@ import Link from "next/link";
 import HeroSlideshow from "./components/HeroSlideshow";
 
 const heroImages = [
-  "/background-img/1_B528C359.jpeg",
-  "/background-img/2_98BFAD4A.jpeg",
-  "/background-img/3_393AAD63.jpeg",
-  "/background-img/4_F8AA7A4B.jpeg",
-  "/background-img/5_C276EF44.jpeg",
-  "/background-img/6_A51E40CE.jpeg",
-  "/background-img/7_F2EC4DB9.jpeg",
-  "/background-img/8_4CFEA32B.jpeg",
-  "/background-img/9_1FC374C6.jpeg",
+  "/background-img/1.jpeg",
+  "/background-img/2.jpeg",
+  "/background-img/3.jpeg",
+  "/background-img/4.jpeg",
+  "/background-img/5.jpeg",
+  "/background-img/6.jpeg",
+  "/background-img/7.jpeg",
+  "/background-img/8.jpeg",
+  "/background-img/9.jpeg",
 ];
 
 const pillars = [
