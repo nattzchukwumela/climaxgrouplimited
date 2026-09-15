@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ShieldCheck } from "lucide-react";
 
 const socialLinks = [
   {
@@ -52,7 +53,7 @@ export default function Footer() {
             land acquisition to full development, right across Nigeria.
           </p>
           <div className="mt-4 inline-flex items-center gap-2 rounded-md bg-surface-container px-3 py-1 text-sm font-medium text-primary">
-            <span className="material-symbols-outlined text-base text-secondary">shield</span>
+            <ShieldCheck className="h-4 w-4 text-secondary" />
             <span>CAC Registered — RC Number: [RC Number — to be updated]</span>
           </div>
           <div className="mt-5 flex gap-4">

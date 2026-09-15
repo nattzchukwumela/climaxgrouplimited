@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { Briefcase, Handshake, Home as HomeIcon, ShieldCheck } from "lucide-react";
 
 const tabs = [
-  { href: "/", label: "Home", icon: "apartment" },
-  { href: "/#services", label: "Services", icon: "corporate_fare" },
-  { href: "/#protection", label: "Protection", icon: "verified_user" },
-  { href: "/contact", label: "Partner", icon: "handshake" },
+  { href: "/", label: "Home", icon: HomeIcon },
+  { href: "/#services", label: "Services", icon: Briefcase },
+  { href: "/#protection", label: "Protection", icon: ShieldCheck },
+  { href: "/contact", label: "Partner", icon: Handshake },
 ];
 
 export default function MobileBottomNav() {
@@ -16,7 +17,7 @@ export default function MobileBottomNav() {
           href={tab.href}
           className="flex flex-col items-center justify-center gap-0.5 text-on-surface-variant transition-colors active:scale-95"
         >
-          <span className="material-symbols-outlined text-2xl">{tab.icon}</span>
+          <tab.icon className="h-6 w-6" />
           <span className="text-[11px] font-semibold tracking-wide">{tab.label}</span>
         </Link>
       ))}

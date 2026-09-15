@@ -1,4 +1,33 @@
 import Link from "next/link";
+import {
+  ArrowRight,
+  Award,
+  BadgeCheck,
+  Building2,
+  Bus,
+  CheckCircle2,
+  ClipboardList,
+  Compass,
+  Eye,
+  Factory,
+  FileText,
+  Gavel,
+  GraduationCap,
+  Handshake,
+  Hotel,
+  Landmark,
+  Map,
+  MapPin,
+  Ruler,
+  ShieldAlert,
+  ShieldCheck,
+  Store,
+  ShoppingCart,
+  TrendingUp,
+  Users,
+  Wheat,
+  type LucideIcon,
+} from "lucide-react";
 import HeroSlideshow from "./components/HeroSlideshow";
 
 const heroImages = [
@@ -13,60 +42,60 @@ const heroImages = [
   "/background-img/9.jpeg",
 ];
 
-const stats = [
+const stats: { icon: LucideIcon; value: string; label: string; sub: string }[] = [
   {
-    icon: "verified",
+    icon: BadgeCheck,
     value: "100%",
     label: "CAC & SCUML Verified",
     sub: "Fully Compliant & Regulatory Backed",
   },
   {
-    icon: "real_estate_agent",
+    icon: Building2,
     value: "500+",
     label: "Properties Sold",
     sub: "Verified Residential & Commercial Plots",
   },
   {
-    icon: "group",
+    icon: Users,
     value: "1,000+",
     label: "Happy Clients",
     sub: "Investors & Homeowners Served",
   },
   {
-    icon: "travel_explore",
+    icon: Compass,
     value: "100%",
     label: "Free Site Visits",
     sub: "Guided Weekly Tours (Wed & Sat)",
   },
   {
-    icon: "badge",
+    icon: Award,
     value: "30+",
     label: "Expert Agents",
     sub: "Dedicated Regional Advisory Network",
   },
 ];
 
-const services = [
+const services: { icon: LucideIcon; title: string; description: string }[] = [
   {
-    icon: "apartment",
+    icon: Building2,
     title: "Sale and Acquisition",
     description:
       "We are committed to sharing our comprehensive expertise in the sales and acquisition of real estate properties.",
   },
   {
-    icon: "insights",
+    icon: TrendingUp,
     title: "Consultancy",
     description:
       "Our team provides expert advice and strategic planning on property investments, market analysis and development projects, ensuring strategic choices and optimal returns.",
   },
   {
-    icon: "account_balance",
+    icon: Landmark,
     title: "Real Estate Investment",
     description:
       "With a proven track record of success, our team has the expertise and experience to help you achieve your real estate investment goal.",
   },
   {
-    icon: "architecture",
+    icon: Ruler,
     title: "Property Development",
     description:
       "We are a full-service real estate development firm, providing services ranging from site acquisition to construction management.",
@@ -93,23 +122,23 @@ const locationAdvantages = [
   "Future infrastructure development",
 ];
 
-const economicActivities = [
-  { icon: "storefront", label: "Commercial activities" },
-  { icon: "commute", label: "Transportation" },
-  { icon: "school", label: "Education" },
-  { icon: "hotel", label: "Hospitality" },
-  { icon: "shopping_cart", label: "Retail" },
-  { icon: "agriculture", label: "Agriculture" },
-  { icon: "factory", label: "Industrial activities" },
-  { icon: "account_balance", label: "Govt & private investments" },
+const economicActivities: { icon: LucideIcon; label: string }[] = [
+  { icon: Store, label: "Commercial activities" },
+  { icon: Bus, label: "Transportation" },
+  { icon: GraduationCap, label: "Education" },
+  { icon: Hotel, label: "Hospitality" },
+  { icon: ShoppingCart, label: "Retail" },
+  { icon: Wheat, label: "Agriculture" },
+  { icon: Factory, label: "Industrial activities" },
+  { icon: Landmark, label: "Govt & private investments" },
 ];
 
-const legalDocs = [
-  { icon: "description", label: "Certificate of Deposit" },
-  { icon: "assignment", label: "Deed of Assignment" },
-  { icon: "map", label: "Survey Plan" },
-  { icon: "verified_user", label: "Registered Survey" },
-  { icon: "gavel", label: "Governor's Consent, where applicable" },
+const legalDocs: { icon: LucideIcon; label: string }[] = [
+  { icon: FileText, label: "Certificate of Deposit" },
+  { icon: ClipboardList, label: "Deed of Assignment" },
+  { icon: Map, label: "Survey Plan" },
+  { icon: ShieldCheck, label: "Registered Survey" },
+  { icon: Gavel, label: "Governor's Consent, where applicable" },
 ];
 
 const investorProtectionItems = [
@@ -193,7 +222,7 @@ export default function Home() {
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-secondary-container px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-secondary/30 transition-all active:scale-95 hover:bg-secondary sm:w-auto"
         >
           <span>Start a Partnership</span>
-          <span className="material-symbols-outlined text-lg">arrow_forward</span>
+          <ArrowRight className="h-[1.125rem] w-[1.125rem]" />
         </Link>
         <Link
           href="/about"
@@ -212,7 +241,7 @@ export default function Home() {
               className="col-span-2 flex flex-col justify-between rounded-xl border border-outline-variant/50 bg-surface-container-lowest p-5 shadow-sm first:col-span-2 last:col-span-2 md:col-span-1 md:first:col-span-1 md:last:col-span-1"
             >
               <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-surface-container text-secondary">
-                <span className="material-symbols-outlined text-xl">{stat.icon}</span>
+                <stat.icon className="h-5 w-5" />
               </div>
               <div>
                 <div className="text-2xl font-extrabold tracking-tight text-primary sm:text-3xl">
@@ -253,7 +282,7 @@ export default function Home() {
               <div className="absolute left-0 top-6 h-8 w-1.5 rounded-full bg-secondary" />
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-surface-container-low text-secondary">
-                  <span className="material-symbols-outlined text-2xl">{service.icon}</span>
+                  <service.icon className="h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="mb-2 text-lg font-bold uppercase tracking-wide text-primary">
@@ -292,7 +321,7 @@ export default function Home() {
                   i === projectFeatures.length - 1 ? "lg:col-span-3" : ""
                 }`}
               >
-                <span className="material-symbols-outlined shrink-0 text-secondary">check_circle</span>
+                <CheckCircle2 className="h-5 w-5 shrink-0 text-secondary" />
                 <span className="text-base font-semibold text-primary">{item}</span>
               </div>
             ))}
@@ -331,7 +360,7 @@ export default function Home() {
                 Site Location &amp; Location Advantage
               </h3>
               <div className="mb-5 inline-flex items-center gap-2 rounded-lg bg-surface-container px-3 py-1.5 text-sm font-semibold text-primary">
-                <span className="material-symbols-outlined text-base text-secondary">pin_drop</span>
+                <MapPin className="h-4 w-4 text-secondary" />
                 <span>Project Location: Port Harcourt, Rivers State</span>
               </div>
               <p className="mb-4 text-sm text-on-surface-variant">
@@ -369,7 +398,7 @@ export default function Home() {
                     key={item.label}
                     className="flex items-center gap-2.5 rounded-lg border border-outline-variant/40 bg-surface-container-low p-3"
                   >
-                    <span className="material-symbols-outlined text-lg text-secondary">{item.icon}</span>
+                    <item.icon className="h-[1.125rem] w-[1.125rem] text-secondary" />
                     <span className="text-sm text-on-surface">{item.label}</span>
                   </div>
                 ))}
@@ -400,7 +429,7 @@ export default function Home() {
                 <ul className="mb-6 space-y-3">
                   {legalDocs.map((item) => (
                     <li key={item.label} className="flex items-center gap-3 text-sm font-medium text-on-surface">
-                      <span className="material-symbols-outlined text-lg text-secondary">{item.icon}</span>
+                      <item.icon className="h-[1.125rem] w-[1.125rem] text-secondary" />
                       <span>{item.label}</span>
                     </li>
                   ))}
@@ -408,7 +437,7 @@ export default function Home() {
               </div>
               <div className="rounded-xl border border-error/20 bg-error-container/40 p-4">
                 <div className="mb-1 flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-error">
-                  <span className="material-symbols-outlined text-base">policy</span>
+                  <ShieldAlert className="h-4 w-4" />
                   <span>Legal Due Diligence</span>
                 </div>
                 <p className="text-sm text-on-surface-variant">
@@ -441,7 +470,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-6 flex items-center gap-3 rounded-xl bg-surface-container p-4">
-                <span className="material-symbols-outlined text-secondary">verified</span>
+                <ShieldCheck className="h-6 w-6 text-secondary" />
                 <span className="text-sm font-medium text-primary">
                   Standardized institutional joint-venture legal frameworks.
                 </span>
@@ -465,7 +494,7 @@ export default function Home() {
             <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {contributions.map((item) => (
                 <div key={item} className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 p-3">
-                  <span className="material-symbols-outlined text-lg text-secondary-fixed">check_circle</span>
+                  <CheckCircle2 className="h-[1.125rem] w-[1.125rem] text-secondary-fixed" />
                   <span className="text-sm text-white">{item}</span>
                 </div>
               ))}
@@ -533,7 +562,7 @@ export default function Home() {
             {/* Panel 1: Commitment */}
             <div className="rounded-2xl bg-surface-container-lowest p-6 text-primary shadow-xl md:p-8">
               <h3 className="mb-4 flex items-center gap-2 text-lg font-extrabold uppercase tracking-wide text-primary">
-                <span className="material-symbols-outlined text-secondary">handshake</span>
+                <Handshake className="h-6 w-6 text-secondary" />
                 <span>Our Commitment</span>
               </h3>
               <ul className="space-y-3">
@@ -555,7 +584,7 @@ export default function Home() {
             <div className="flex flex-col justify-between rounded-2xl bg-surface-container-lowest p-6 text-primary shadow-xl md:p-8">
               <div>
                 <h3 className="mb-4 flex items-center gap-2 text-lg font-extrabold uppercase tracking-wide text-primary">
-                  <span className="material-symbols-outlined text-secondary">visibility</span>
+                  <Eye className="h-6 w-6 text-secondary" />
                   <span>Our Vision</span>
                 </h3>
                 <ul className="space-y-3">
@@ -587,7 +616,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 rounded-xl bg-secondary-container px-8 py-4 text-sm font-semibold text-white shadow-xl shadow-secondary/40 transition-all active:scale-95 hover:bg-secondary"
             >
               <span>Contact Us Today</span>
-              <span className="material-symbols-outlined text-lg">arrow_forward</span>
+              <ArrowRight className="h-[1.125rem] w-[1.125rem]" />
             </Link>
           </div>
         </div>
