@@ -41,21 +41,30 @@ const stats = [
   },
 ];
 
-const pillars = [
+const services = [
   {
-    title: "Property Partnerships",
+    title: "Sale and Acquisition",
     description:
-      "We team up with landowners, investors, and developers to structure real estate ventures built on shared trust and shared success.",
+      "We are committed to sharing our comprehensive expertise in the sales and acquisition of real estate properties.",
+    image: "/background-img/1_B528C359.jpeg",
   },
   {
-    title: "Real Estate Advisory",
+    title: "Consultancy",
     description:
-      "Guidance on property investment, development planning, and market opportunities tailored to each partner's goals.",
+      "Our team provides expert advice and strategic planning on property investments, market analysis and development projects, ensuring strategic choices and optimal returns.",
+    image: "/background-img/court_1_EF26173A.jpeg",
   },
   {
-    title: "Asset Management",
+    title: "Real Estate Investment",
     description:
-      "Hands-on oversight of properties and portfolios to protect and grow the value of every partnership we enter.",
+      "With a proven track record of success, our team has the expertise and experience to help you achieve your real estate investment goal.",
+    image: "/background-img/court_2_28FB5B01.jpeg",
+  },
+  {
+    title: "Property Development",
+    description:
+      "We are a full-service real estate development firm, providing services ranging from site acquisition to construction management.",
+    image: "/background-img/court_3_3CC1FE4D.jpeg",
   },
 ];
 
@@ -102,28 +111,50 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-6xl px-6 py-20">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
-            What We Do
-          </h2>
-          <p className="mt-4 text-zinc-600 dark:text-zinc-400">
-            We are currently building out our project portfolio. Here&apos;s
-            where our partnership focus begins.
+      {/* What We Do — Special Services */}
+      <section className="bg-zinc-950 text-white">
+        {/* Header row */}
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 pt-16 pb-10 sm:flex-row sm:items-start sm:justify-between">
+          <div className="sm:max-w-xs">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#5bc8f5]">
+              What We Do
+            </p>
+            <h2 className="mt-3 text-3xl font-bold uppercase leading-tight tracking-wide text-white sm:text-4xl">
+              Our Special Services
+            </h2>
+          </div>
+          <p className="max-w-md text-sm leading-relaxed text-white/70 sm:pt-10">
+            Our real estate services are required nationwide and are known to
+            be the best for their quality, authenticity, and accessibility. We
+            take pride in what we do.
           </p>
         </div>
-        <div className="mt-12 grid gap-8 sm:grid-cols-3">
-          {pillars.map((pillar) => (
+
+        {/* 2×2 service cards */}
+        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-px px-6 pb-16 sm:grid-cols-2">
+          {services.map((service) => (
             <div
-              key={pillar.title}
-              className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-zinc-900"
+              key={service.title}
+              className="group relative overflow-hidden"
+              style={{ minHeight: "280px" }}
             >
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-                {pillar.title}
-              </h3>
-              <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
-                {pillar.description}
-              </p>
+              {/* Background image */}
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={{ backgroundImage: `url('${service.image}')` }}
+              />
+              {/* Dark overlay */}
+              <div className="absolute inset-0 bg-black/60 transition-opacity duration-300 group-hover:bg-black/50" />
+              {/* Text */}
+              <div className="relative z-10 flex h-full flex-col justify-end p-8">
+                <div className="mb-3 h-px w-8 bg-[#5bc8f5]" />
+                <h3 className="text-base font-semibold uppercase tracking-wider text-white">
+                  {service.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/70">
+                  {service.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
