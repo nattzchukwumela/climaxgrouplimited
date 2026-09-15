@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import HeroSlideshow from "../components/HeroSlideshow";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
@@ -6,6 +7,14 @@ export const metadata: Metadata = {
   description:
     "Get in touch with Climax Group Limited to discuss real estate partnership opportunities.",
 };
+
+const heroImages = [
+  "/background-img/6_A51E40CE.jpeg",
+  "/background-img/7_F2EC4DB9.jpeg",
+  "/background-img/8_4CFEA32B.jpeg",
+  "/background-img/9_1FC374C6.jpeg",
+  "/background-img/court_3_3CC1FE4D.jpeg",
+];
 
 const contactDetails = [
   { label: "Email", value: "info@climaxgrouplimited.com" },
@@ -16,17 +25,12 @@ const contactDetails = [
 export default function ContactPage() {
   return (
     <div className="flex flex-1 flex-col">
-      <section className="bg-[#1487be] text-white">
-        <div className="mx-auto w-full max-w-6xl px-6 py-16 text-center">
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Contact Us
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-white/90">
-            Interested in a partnership opportunity? We&apos;d love to hear
-            from you.
-          </p>
-        </div>
-      </section>
+      <HeroSlideshow
+        images={heroImages}
+        eyebrow="Let's Talk"
+        heading="Contact Us"
+        subheading="Interested in a partnership opportunity? We'd love to hear from you."
+      />
 
       <section className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-16 sm:grid-cols-2">
         <div>

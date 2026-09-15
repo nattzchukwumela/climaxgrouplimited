@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
+import HeroSlideshow from "../components/HeroSlideshow";
 
 export const metadata: Metadata = {
   title: "About | Climax Group Limited",
   description:
     "Learn about Climax Group Limited, a real estate partnership dedicated to building trusted property ventures.",
 };
+
+const heroImages = [
+  "/background-img/court_1_EF26173A.jpeg",
+  "/background-img/court_2_28FB5B01.jpeg",
+  "/background-img/court_3_3CC1FE4D.jpeg",
+  "/background-img/4_F8AA7A4B.jpeg",
+  "/background-img/5_C276EF44.jpeg",
+];
 
 const values = [
   {
@@ -27,17 +36,12 @@ const values = [
 export default function AboutPage() {
   return (
     <div className="flex flex-1 flex-col">
-      <section className="bg-[#1487be] text-white">
-        <div className="mx-auto w-full max-w-6xl px-6 py-16 text-center">
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            About Climax Group Limited
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-white/90">
-            A real estate partnership built on trust, collaboration, and
-            shared success.
-          </p>
-        </div>
-      </section>
+      <HeroSlideshow
+        images={heroImages}
+        eyebrow="Our Story"
+        heading="About Climax Group Limited"
+        subheading="A real estate partnership built on trust, collaboration, and shared success."
+      />
 
       <section className="mx-auto w-full max-w-4xl px-6 py-16">
         <h2 className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">

@@ -1,5 +1,17 @@
-import Image from "next/image";
 import Link from "next/link";
+import HeroSlideshow from "./components/HeroSlideshow";
+
+const heroImages = [
+  "/background-img/1_B528C359.jpeg",
+  "/background-img/2_98BFAD4A.jpeg",
+  "/background-img/3_393AAD63.jpeg",
+  "/background-img/4_F8AA7A4B.jpeg",
+  "/background-img/5_C276EF44.jpeg",
+  "/background-img/6_A51E40CE.jpeg",
+  "/background-img/7_F2EC4DB9.jpeg",
+  "/background-img/8_4CFEA32B.jpeg",
+  "/background-img/9_1FC374C6.jpeg",
+];
 
 const pillars = [
   {
@@ -22,39 +34,25 @@ const pillars = [
 export default function Home() {
   return (
     <div className="flex flex-1 flex-col">
-      <section className="bg-[#1487be] text-white">
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-8 px-6 py-20 text-center sm:py-28">
-          <Image
-            src="/logo.jpeg"
-            alt="Climax Group Limited logo"
-            width={120}
-            height={120}
-            priority
-            className="rounded-2xl shadow-lg"
-          />
-          <h1 className="max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
-            Building Trusted Real Estate Partnerships
-          </h1>
-          <p className="max-w-xl text-lg text-white/90">
-            Climax Group Limited partners with investors, landowners, and
-            developers to create real estate ventures built to last.
-          </p>
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <Link
-              href="/contact"
-              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#1487be] transition-colors hover:bg-zinc-100"
-            >
-              Get in Touch
-            </Link>
-            <Link
-              href="/about"
-              className="rounded-full border border-white/60 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-            >
-              Learn More
-            </Link>
-          </div>
-        </div>
-      </section>
+      <HeroSlideshow
+        images={heroImages}
+        eyebrow="Nigeria's Premier Real Estate Partner"
+        heading="Building Trusted Real Estate Partnerships"
+        subheading="Climax Group Limited partners with investors, landowners, and developers to create real estate ventures built to last."
+      >
+        <Link
+          href="/contact"
+          className="rounded-full bg-[#1487be] px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#106a99]"
+        >
+          Start a Partnership →
+        </Link>
+        <Link
+          href="/about"
+          className="rounded-full border border-white/60 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+        >
+          Explore Our Work
+        </Link>
+      </HeroSlideshow>
 
       <section className="mx-auto w-full max-w-6xl px-6 py-20">
         <div className="mx-auto max-w-2xl text-center">
