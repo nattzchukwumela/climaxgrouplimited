@@ -30,7 +30,10 @@ export default function HeroSlideshow({
   }, [images.length, interval]);
 
   return (
-    <section className="relative flex min-h-[92vh] items-center justify-center overflow-hidden">
+    <section
+      id="hero"
+      className="relative flex min-h-[90vh] items-end justify-center overflow-hidden pb-space-2xl pt-24"
+    >
       {/* Background stack — all images always mounted, active one fades in */}
       {images.map((src, i) => (
         <div
@@ -53,48 +56,50 @@ export default function HeroSlideshow({
         </div>
       ))}
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 z-10 bg-black/55" />
+      {/* Navy readability gradients */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-primary via-primary/80 to-primary/30" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-primary/70 via-transparent to-transparent" />
 
       {/* Content */}
-      <div className="relative z-20 mx-auto flex w-full max-w-5xl flex-col items-center gap-6 px-6 py-28 text-center text-white">
+      <div className="relative z-20 mx-auto flex w-full max-w-xl flex-col items-center gap-5 px-gutter-mobile text-center">
         {eyebrow && (
-          <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-[#5bc8f5]">
-            <span className="h-px w-8 bg-[#5bc8f5]" />
-            {eyebrow}
-            <span className="h-px w-8 bg-[#5bc8f5]" />
-          </p>
+          <div className="mb-1 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 shadow-sm backdrop-blur-md">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-secondary-fixed-dim" />
+            <span className="text-xs font-bold uppercase tracking-widest text-white">
+              {eyebrow}
+            </span>
+          </div>
         )}
 
-        <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight drop-shadow-lg sm:text-6xl lg:text-7xl">
+        <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-6xl">
           {heading}
         </h1>
 
         {subheading && (
-          <p className="max-w-xl text-lg font-light text-white/85 sm:text-xl">
+          <p className="max-w-md text-lg font-normal leading-relaxed text-surface-container-high">
             {subheading}
           </p>
         )}
 
         {children && (
-          <div className="mt-2 flex flex-col items-center gap-4 sm:flex-row">
+          <div className="mt-3 flex w-full flex-col items-center justify-center gap-3.5 sm:w-auto sm:flex-row">
             {children}
           </div>
         )}
       </div>
 
       {/* Slide indicators */}
-      <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center gap-2">
+      <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center gap-2">
         {images.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
             aria-label={`Go to slide ${i + 1}`}
-            className="h-1.5 rounded-full transition-all duration-500"
+            className="h-2 rounded-full transition-all duration-500"
             style={{
-              width: i === current ? "2rem" : "0.5rem",
+              width: i === current ? "1.5rem" : "0.5rem",
               backgroundColor:
-                i === current ? "white" : "rgba(255,255,255,0.35)",
+                i === current ? "#0266ff" : "rgba(255,255,255,0.4)",
             }}
           />
         ))}

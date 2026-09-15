@@ -2,69 +2,74 @@ import Link from "next/link";
 import HeroSlideshow from "./components/HeroSlideshow";
 
 const heroImages = [
-  "/background-img/1_B528C359.jpeg",
-  "/background-img/2_98BFAD4A.jpeg",
-  "/background-img/3_393AAD63.jpeg",
-  "/background-img/4_F8AA7A4B.jpeg",
-  "/background-img/5_C276EF44.jpeg",
-  "/background-img/6_A51E40CE.jpeg",
-  "/background-img/7_F2EC4DB9.jpeg",
-  "/background-img/8_4CFEA32B.jpeg",
-  "/background-img/9_1FC374C6.jpeg",
+  "/background-img/1.jpeg",
+  "/background-img/2.jpeg",
+  "/background-img/3.jpeg",
+  "/background-img/4.jpeg",
+  "/background-img/5.jpeg",
+  "/background-img/6.jpeg",
+  "/background-img/7.jpeg",
+  "/background-img/8.jpeg",
+  "/background-img/9.jpeg",
 ];
 
 const stats = [
   {
+    icon: "verified",
     value: "100%",
     label: "CAC & SCUML Verified",
     sub: "Fully Compliant & Regulatory Backed",
   },
   {
+    icon: "real_estate_agent",
     value: "500+",
-    label: "Properties Listed / Sold",
+    label: "Properties Sold",
     sub: "Verified Residential & Commercial Plots",
   },
   {
+    icon: "group",
     value: "1,000+",
     label: "Happy Clients",
     sub: "Investors & Homeowners Served",
   },
   {
+    icon: "travel_explore",
     value: "100%",
-    label: "Free Site Inspections",
+    label: "Free Site Visits",
     sub: "Guided Weekly Tours (Wed & Sat)",
   },
   {
+    icon: "badge",
     value: "30+",
-    label: "Expert Agents / Realtors",
+    label: "Expert Agents",
     sub: "Dedicated Regional Advisory Network",
   },
 ];
 
 const services = [
   {
+    icon: "apartment",
     title: "Sale and Acquisition",
     description:
       "We are committed to sharing our comprehensive expertise in the sales and acquisition of real estate properties.",
-    image: "/background-img/1_B528C359.jpeg",
   },
   {
+    icon: "insights",
     title: "Consultancy",
     description:
       "Our team provides expert advice and strategic planning on property investments, market analysis and development projects, ensuring strategic choices and optimal returns.",
-    image: "/background-img/court_1_EF26173A.jpeg",
   },
   {
+    icon: "account_balance",
     title: "Real Estate Investment",
     description:
       "With a proven track record of success, our team has the expertise and experience to help you achieve your real estate investment goal.",
-    image: "/background-img/court_2_28FB5B01.jpeg",
   },
   {
+    icon: "architecture",
     title: "Property Development",
     description:
       "We are a full-service real estate development firm, providing services ranging from site acquisition to construction management.",
-    image: "/background-img/court_3_3CC1FE4D.jpeg",
   },
 ];
 
@@ -89,22 +94,22 @@ const locationAdvantages = [
 ];
 
 const economicActivities = [
-  "Commercial activities",
-  "Transportation",
-  "Education",
-  "Hospitality",
-  "Retail",
-  "Agriculture",
-  "Industrial activities",
-  "Government and private-sector investments",
+  { icon: "storefront", label: "Commercial activities" },
+  { icon: "commute", label: "Transportation" },
+  { icon: "school", label: "Education" },
+  { icon: "hotel", label: "Hospitality" },
+  { icon: "shopping_cart", label: "Retail" },
+  { icon: "agriculture", label: "Agriculture" },
+  { icon: "factory", label: "Industrial activities" },
+  { icon: "account_balance", label: "Govt & private investments" },
 ];
 
 const legalDocs = [
-  "Certificate of Deposit",
-  "Deed of Assignment",
-  "Survey Plan",
-  "Registered Survey",
-  "Governor's Consent, where applicable",
+  { icon: "description", label: "Certificate of Deposit" },
+  { icon: "assignment", label: "Deed of Assignment" },
+  { icon: "map", label: "Survey Plan" },
+  { icon: "verified_user", label: "Registered Survey" },
+  { icon: "gavel", label: "Governor's Consent, where applicable" },
 ];
 
 const investorProtectionItems = [
@@ -185,75 +190,77 @@ export default function Home() {
       >
         <Link
           href="/contact"
-          className="rounded-full bg-[#1487be] px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#106a99]"
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-secondary-container px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-secondary/30 transition-all active:scale-95 hover:bg-secondary sm:w-auto"
         >
-          Start a Partnership →
+          <span>Start a Partnership</span>
+          <span className="material-symbols-outlined text-lg">arrow_forward</span>
         </Link>
         <Link
           href="/about"
-          className="rounded-full border border-white/60 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+          className="flex w-full items-center justify-center rounded-xl border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all active:scale-95 hover:bg-white/20 sm:w-auto"
         >
           Explore Our Work
         </Link>
       </HeroSlideshow>
 
-      {/* ── Stats Banner ── */}
-      <section className="bg-[#0d3a52] text-white">
-        <div className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-px sm:grid-cols-3 lg:grid-cols-5">
-          {stats.map((stat, i) => (
+      {/* ── Key Metrics Trust Bar ── */}
+      <section className="relative z-20 -mt-6 mx-auto w-full max-w-7xl px-gutter-mobile">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
+          {stats.map((stat) => (
             <div
-              key={i}
-              className="flex flex-col items-center gap-1 px-6 py-8 text-center"
+              key={stat.label}
+              className="col-span-2 flex flex-col justify-between rounded-xl border border-outline-variant/50 bg-surface-container-lowest p-5 shadow-sm first:col-span-2 last:col-span-2 md:col-span-1 md:first:col-span-1 md:last:col-span-1"
             >
-              <span className="text-4xl font-bold tracking-tight text-[#5bc8f5] sm:text-5xl">
-                {stat.value}
-              </span>
-              <span className="mt-1 text-sm font-semibold uppercase tracking-wide text-white">
-                {stat.label}
-              </span>
-              <span className="mt-1 text-xs text-white/60">{stat.sub}</span>
+              <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-surface-container text-secondary">
+                <span className="material-symbols-outlined text-xl">{stat.icon}</span>
+              </div>
+              <div>
+                <div className="text-2xl font-extrabold tracking-tight text-primary sm:text-3xl">
+                  {stat.value}
+                </div>
+                <div className="mt-1 text-xs font-bold uppercase tracking-wide text-secondary">
+                  {stat.label}
+                </div>
+                <p className="mt-1 text-sm text-on-surface-variant">{stat.sub}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── Our Special Services ── */}
-      <section className="bg-zinc-950 text-white">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 pt-16 pb-10 sm:flex-row sm:items-start sm:justify-between">
-          <div className="sm:max-w-xs">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#5bc8f5]">
-              What We Do
-            </p>
-            <h2 className="mt-3 text-3xl font-bold uppercase leading-tight tracking-wide text-white sm:text-4xl">
-              Our Special Services
-            </h2>
+      {/* ── What We Do / Our Special Services ── */}
+      <section className="mx-auto w-full max-w-7xl px-gutter-mobile py-space-2xl" id="services">
+        <div className="mb-10 text-left">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-surface-container px-3 py-1 text-xs font-bold uppercase tracking-widest text-secondary">
+            <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
+            What We Do
           </div>
-          <p className="max-w-md text-sm leading-relaxed text-white/70 sm:pt-10">
+          <h2 className="mb-4 text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl">
+            Our Special Services
+          </h2>
+          <p className="max-w-2xl text-base text-on-surface-variant">
             Our real estate services are required nationwide and are known to
             be the best for their quality, authenticity, and accessibility. We
             take pride in what we do.
           </p>
         </div>
-        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-px px-6 pb-16 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {services.map((service) => (
             <div
               key={service.title}
-              className="group relative overflow-hidden"
-              style={{ minHeight: "280px" }}
+              className="group relative overflow-hidden rounded-xl border border-outline-variant/50 bg-surface-container-lowest p-6 shadow-sm transition-colors duration-200 hover:border-secondary/40"
             >
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url('${service.image}')` }}
-              />
-              <div className="absolute inset-0 bg-black/60 transition-opacity duration-300 group-hover:bg-black/50" />
-              <div className="relative z-10 flex h-full flex-col justify-end p-8">
-                <div className="mb-3 h-px w-8 bg-[#5bc8f5]" />
-                <h3 className="text-base font-semibold uppercase tracking-wider text-white">
-                  {service.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">
-                  {service.description}
-                </p>
+              <div className="absolute left-0 top-6 h-8 w-1.5 rounded-full bg-secondary" />
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-surface-container-low text-secondary">
+                  <span className="material-symbols-outlined text-2xl">{service.icon}</span>
+                </div>
+                <div>
+                  <h3 className="mb-2 text-lg font-bold uppercase tracking-wide text-primary">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-on-surface-variant">{service.description}</p>
+                </div>
               </div>
             </div>
           ))}
@@ -261,319 +268,328 @@ export default function Home() {
       </section>
 
       {/* ── The Project ── */}
-      <section className="bg-white dark:bg-zinc-900">
-        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-0 lg:grid-cols-2">
-          {/* Left — image */}
-          <div
-            className="min-h-[380px] bg-cover bg-center"
-            style={{
-              backgroundImage: `url('/background-img/3_393AAD63.jpeg')`,
-            }}
-          />
-          {/* Right — content */}
-          <div className="flex flex-col justify-center px-8 py-14 lg:px-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#1487be]">
+      <section className="border-y border-outline-variant/40 bg-surface-container-low py-space-2xl" id="project">
+        <div className="mx-auto w-full max-w-7xl px-gutter-mobile">
+          <div className="mb-8">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-bold uppercase tracking-widest text-secondary shadow-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
               The Project
-            </p>
-            <h2 className="mt-3 text-3xl font-bold uppercase leading-tight tracking-wide text-zinc-900 dark:text-white sm:text-4xl">
+            </div>
+            <h2 className="mb-3 text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl">
               What Are We Developing?
             </h2>
-            <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
+            <p className="text-base text-on-surface-variant">
               The project is designed as a planned real estate development
               incorporating:
             </p>
-            <ul className="mt-4 space-y-2">
-              {projectFeatures.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-zinc-700 dark:text-zinc-300">
-                  <span className="h-px w-6 flex-shrink-0 bg-[#1487be]" />
-                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#1487be]" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-sm text-zinc-600 dark:text-zinc-400">
-              The development will be executed in phases to ensure effective
-              capital deployment, controlled costs and progressive revenue
-              generation.
-            </p>
-            <div className="mt-6 border-l-4 border-[#1487be] pl-4">
-              <p className="text-xs font-bold uppercase tracking-wider text-[#1487be]">
-                Project Vision
-              </p>
-              <p className="mt-1 text-sm text-zinc-700 dark:text-zinc-300">
-                To create a commercially successful and sustainable real estate
-                community that preserves and increases investors&apos; capital
-                while delivering long-term value to end users.
-              </p>
+          </div>
+
+          <div className="mb-8 grid grid-cols-1 gap-3.5 md:grid-cols-2 lg:grid-cols-3">
+            {projectFeatures.map((item, i) => (
+              <div
+                key={item}
+                className={`flex items-center gap-3 rounded-xl border border-outline-variant/50 bg-surface-container-lowest p-4 ${
+                  i === projectFeatures.length - 1 ? "lg:col-span-3" : ""
+                }`}
+              >
+                <span className="material-symbols-outlined shrink-0 text-secondary">check_circle</span>
+                <span className="text-base font-semibold text-primary">{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mb-6 rounded-xl border border-outline-variant/50 bg-surface-container-high/60 p-4 text-sm text-on-surface-variant">
+            The development will be executed in phases to ensure effective
+            capital deployment, controlled costs and progressive revenue
+            generation.
+          </div>
+
+          <div className="relative overflow-hidden rounded-2xl bg-primary-container p-6 text-white shadow-md">
+            <div className="absolute -bottom-8 -right-8 h-40 w-40 rounded-full bg-secondary/15 blur-2xl" />
+            <div className="mb-2 text-xs font-bold uppercase tracking-widest text-secondary-fixed">
+              Project Vision
             </div>
+            <p className="text-lg font-medium leading-relaxed text-surface-container-lowest">
+              To create a commercially successful and sustainable real estate
+              community that preserves and increases investors&apos; capital
+              while delivering long-term value to end users.
+            </p>
           </div>
         </div>
       </section>
 
       {/* ── Site Location & Economic Activities ── */}
-      <section
-        className="relative bg-cover bg-center bg-fixed"
-        style={{ backgroundImage: `url('/background-img/5_C276EF44.jpeg')` }}
-      >
-        <div className="absolute inset-0 bg-[#0d2a3e]/80" />
-        <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 gap-6 px-6 py-16 sm:grid-cols-2">
-          {/* Site Location */}
-          <div className="rounded-2xl bg-white/95 p-8 shadow-xl dark:bg-zinc-900/95">
-            <h2 className="text-2xl font-extrabold uppercase leading-tight tracking-wide text-[#0d2a6e] dark:text-white sm:text-3xl">
-              Site Location &amp; Location Advantage
-            </h2>
-            <p className="mt-1 text-xs font-bold uppercase tracking-wider text-zinc-500">
-              Location is the first form of value
-            </p>
-            <p className="mt-4 text-sm text-zinc-700 dark:text-zinc-300">
-              <span className="font-semibold text-[#0d2a6e] dark:text-[#5bc8f5]">
-                Project Location:
-              </span>{" "}
-              Port Harcourt, Rivers State
-              <br />
-              The site&apos;s investment potential is supported by:
-            </p>
-            <ul className="mt-4 space-y-2">
-              {locationAdvantages.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-zinc-700 dark:text-zinc-300">
-                  <span className="h-px w-5 flex-shrink-0 bg-[#1487be]" />
-                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#1487be]" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Economic Activities */}
-          <div className="rounded-2xl bg-white/95 p-8 shadow-xl dark:bg-zinc-900/95">
-            <h2 className="text-2xl font-extrabold uppercase leading-tight tracking-wide text-[#0d2a6e] dark:text-white sm:text-3xl">
-              Economic Activities Around the Project
-            </h2>
-            <p className="mt-4 text-sm text-zinc-700 dark:text-zinc-300">
-              The surrounding area benefits from:
-            </p>
-            <ul className="mt-4 space-y-2">
-              {economicActivities.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-zinc-700 dark:text-zinc-300">
-                  <span className="h-px w-5 flex-shrink-0 bg-[#1487be]" />
-                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#1487be]" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-5 text-sm text-zinc-600 dark:text-zinc-400">
-              The objective is not simply to acquire land — it is to acquire
-              land positioned for economic growth.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Title & Legal Security + Investor Protection ── */}
-      <section className="bg-zinc-950 text-white">
-        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-0 lg:grid-cols-2">
-          {/* Title & Legal Security */}
-          <div className="bg-[#0d2a6e] px-8 py-14 lg:px-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-yellow-400">
-              Investment must begin with secure title
-            </p>
-            <h2 className="mt-3 text-3xl font-extrabold uppercase leading-tight tracking-wide text-white sm:text-4xl">
-              Title &amp; Legal Security
-            </h2>
-            <p className="mt-5 text-sm text-white/70">
-              Land documentation, including:
-            </p>
-            <ul className="mt-4 space-y-2">
-              {legalDocs.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-white/85">
-                  <span className="h-px w-5 flex-shrink-0 bg-yellow-400" />
-                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-yellow-400" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 rounded-xl bg-red-600 p-6">
-              <h3 className="text-xl font-extrabold uppercase tracking-wide text-white">
-                Legal Due Diligence
+      <section className="mx-auto w-full max-w-7xl px-gutter-mobile py-space-2xl">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {/* Card 1: Site Location */}
+          <div className="flex flex-col justify-between rounded-2xl border border-outline-variant/50 bg-surface-container-lowest p-6 shadow-sm md:p-8">
+            <div>
+              <div className="mb-1 text-xs font-bold uppercase tracking-wider text-secondary">
+                Location is the first form of value
+              </div>
+              <h3 className="mb-3 text-xl font-extrabold uppercase tracking-wide text-primary sm:text-2xl">
+                Site Location &amp; Location Advantage
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/90">
-                Before final investment commitment, the project documentation
-                will be subjected to appropriate legal and title verification.
+              <div className="mb-5 inline-flex items-center gap-2 rounded-lg bg-surface-container px-3 py-1.5 text-sm font-semibold text-primary">
+                <span className="material-symbols-outlined text-base text-secondary">pin_drop</span>
+                <span>Project Location: Port Harcourt, Rivers State</span>
+              </div>
+              <p className="mb-4 text-sm text-on-surface-variant">
+                The site&apos;s investment potential is supported by:
               </p>
+              <ul className="mb-6 space-y-3">
+                {locationAdvantages.map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm text-on-surface">
+                    <span className="h-2 w-2 shrink-0 rounded-full bg-secondary" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="border-t border-outline-variant/40 pt-4 text-sm text-on-surface-variant">
+              Strategic gateway positioning along high-velocity urban development axes.
             </div>
           </div>
 
-          {/* Investor Protection */}
-          <div className="flex flex-col justify-center bg-white px-8 py-14 dark:bg-zinc-900 lg:px-12">
-            <h2 className="text-3xl font-extrabold uppercase leading-tight tracking-wide text-[#0d2a6e] dark:text-white sm:text-4xl">
-              Investor Protection
-            </h2>
-            <p className="mt-5 text-sm text-zinc-600 dark:text-zinc-400">
-              The JV structure will clearly define:
-            </p>
-            <ul className="mt-4 space-y-2">
-              {investorProtectionItems.map((item) => (
-                <li key={item} className="flex items-center justify-between gap-3 text-sm text-zinc-700 dark:text-zinc-300">
-                  <span>{item}</span>
-                  <span className="h-px w-5 flex-shrink-0 bg-red-500" />
-                </li>
-              ))}
-            </ul>
+          {/* Card 2: Economic Activities */}
+          <div className="flex flex-col justify-between rounded-2xl border border-outline-variant/50 bg-surface-container-lowest p-6 shadow-sm md:p-8">
+            <div>
+              <div className="mb-1 text-xs font-bold uppercase tracking-wider text-secondary">
+                Regional multiplier effect
+              </div>
+              <h3 className="mb-3 text-xl font-extrabold uppercase tracking-wide text-primary sm:text-2xl">
+                Economic Activities Around the Project
+              </h3>
+              <p className="mb-5 text-sm text-on-surface-variant">
+                The surrounding area benefits from:
+              </p>
+              <div className="mb-6 grid grid-cols-2 gap-3">
+                {economicActivities.map((item) => (
+                  <div
+                    key={item.label}
+                    className="flex items-center gap-2.5 rounded-lg border border-outline-variant/40 bg-surface-container-low p-3"
+                  >
+                    <span className="material-symbols-outlined text-lg text-secondary">{item.icon}</span>
+                    <span className="text-sm text-on-surface">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-xl border border-secondary/20 bg-surface-container p-4 text-sm font-semibold text-primary">
+              The objective is not simply to acquire land — it is to acquire
+              land positioned for economic growth.
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Our Contribution So Far ── */}
-      <section className="bg-white dark:bg-zinc-900">
-        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-0 lg:grid-cols-2">
-          {/* Left — dark content panel */}
-          <div className="bg-[#0d2a6e] px-8 py-14 lg:px-12">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-yellow-400">
-              We are not asking an investor to start from zero.
-            </p>
-            <h2 className="mt-3 text-3xl font-extrabold uppercase leading-tight tracking-wide text-white sm:text-4xl">
-              Our Contribution So Far
-            </h2>
-            <p className="mt-5 text-sm text-white/70">
-              Climax Group Limited has already committed resources toward the
-              project.
-            </p>
-            <p className="mt-4 text-xs font-bold uppercase tracking-wider text-yellow-400">
-              Our Contribution
-            </p>
-            <ul className="mt-3 space-y-2">
-              {contributions.map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-white/85">
-                  <span className="h-px w-5 flex-shrink-0 bg-yellow-400" />
-                  <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-yellow-400" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-sm italic text-white/60">
-              This demonstrates our skin in the game and alignment with the
-              investor.
-            </p>
+      {/* ── Title & Legal Security + Investor Protection + Our Contribution ── */}
+      <section className="border-y border-outline-variant/40 bg-surface-container-low py-space-2xl" id="protection">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-gutter-mobile">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {/* Card 1: Title & Legal Security */}
+            <div className="flex flex-col justify-between rounded-2xl border border-outline-variant/50 bg-surface-container-lowest p-6 shadow-sm md:p-8">
+              <div>
+                <div className="mb-1 text-xs font-bold uppercase tracking-wider text-secondary">
+                  Investment must begin with secure title
+                </div>
+                <h3 className="mb-4 text-xl font-extrabold uppercase tracking-wide text-primary sm:text-2xl">
+                  Title &amp; Legal Security
+                </h3>
+                <p className="mb-4 text-sm text-on-surface-variant">Land documentation, including:</p>
+                <ul className="mb-6 space-y-3">
+                  {legalDocs.map((item) => (
+                    <li key={item.label} className="flex items-center gap-3 text-sm font-medium text-on-surface">
+                      <span className="material-symbols-outlined text-lg text-secondary">{item.icon}</span>
+                      <span>{item.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rounded-xl border border-error/20 bg-error-container/40 p-4">
+                <div className="mb-1 flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-error">
+                  <span className="material-symbols-outlined text-base">policy</span>
+                  <span>Legal Due Diligence</span>
+                </div>
+                <p className="text-sm text-on-surface-variant">
+                  Before final investment commitment, the project documentation
+                  will be subjected to appropriate legal and title verification.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2: Investor Protection */}
+            <div className="flex flex-col justify-between rounded-2xl border border-outline-variant/50 bg-surface-container-lowest p-6 shadow-sm md:p-8">
+              <div>
+                <div className="mb-1 text-xs font-bold uppercase tracking-wider text-secondary">
+                  Governance protocols
+                </div>
+                <h3 className="mb-3 text-xl font-extrabold uppercase tracking-wide text-primary sm:text-2xl">
+                  Investor Protection
+                </h3>
+                <p className="mb-4 text-sm text-on-surface-variant">The JV structure will clearly define:</p>
+                <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                  {investorProtectionItems.map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center justify-between rounded-lg border border-outline-variant/30 bg-surface-container-low p-2.5 text-sm"
+                    >
+                      <span>{item}</span>
+                      <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="mt-6 flex items-center gap-3 rounded-xl bg-surface-container p-4">
+                <span className="material-symbols-outlined text-secondary">verified</span>
+                <span className="text-sm font-medium text-primary">
+                  Standardized institutional joint-venture legal frameworks.
+                </span>
+              </div>
+            </div>
           </div>
 
-          {/* Right — image stack */}
-          <div className="grid grid-rows-3">
-            {[
-              "/background-img/7_F2EC4DB9.jpeg",
-              "/background-img/8_4CFEA32B.jpeg",
-              "/background-img/9_1FC374C6.jpeg",
-            ].map((src, i) => (
-              <div
-                key={i}
-                className="min-h-[180px] bg-cover bg-center"
-                style={{ backgroundImage: `url('${src}')` }}
-              />
-            ))}
+          {/* Card 3: Our Contribution So Far */}
+          <div className="rounded-2xl bg-primary-container p-6 text-white shadow-md md:p-8">
+            <div className="mb-6 max-w-3xl">
+              <div className="mb-1 text-xs font-bold uppercase tracking-wider text-secondary-fixed">
+                We are not asking an investor to start from zero.
+              </div>
+              <h3 className="mb-2 text-2xl font-extrabold uppercase tracking-wide text-white sm:text-3xl">
+                Our Contribution So Far
+              </h3>
+              <p className="text-sm text-surface-container-high">
+                Climax Group Limited has already committed resources toward the project.
+              </p>
+            </div>
+            <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {contributions.map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 p-3">
+                  <span className="material-symbols-outlined text-lg text-secondary-fixed">check_circle</span>
+                  <span className="text-sm text-white">{item}</span>
+                </div>
+              ))}
+            </div>
+            <div className="border-t border-white/15 pt-4 text-sm italic text-secondary-fixed">
+              This demonstrates our skin in the game and alignment with the investor.
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── Risk Management ── */}
-      <section className="bg-zinc-950 text-white">
-        <div className="mx-auto w-full max-w-6xl px-6 py-16">
-          {/* Header */}
-          <div className="mb-10 border-l-4 border-[#1487be] pl-5">
-            <h2 className="text-4xl font-extrabold uppercase tracking-wide text-white sm:text-5xl">
-              Risk Management
-            </h2>
-            <p className="mt-2 text-sm font-bold uppercase tracking-widest text-[#5bc8f5]">
-              We do not ignore risk. We manage it.
-            </p>
+      <section className="mx-auto w-full max-w-7xl px-gutter-mobile py-space-2xl">
+        <div className="mb-8 text-left">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-surface-container px-3 py-1 text-xs font-bold uppercase tracking-widest text-secondary">
+            <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
+            Institutional Prudence
           </div>
-          {/* Risk grid */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
-            {risks.map((r) => (
-              <div
-                key={r.risk}
-                className="rounded-xl border border-white/10 bg-white/5 px-6 py-5"
-              >
-                <p className="text-sm font-bold uppercase tracking-wide text-white">
-                  {r.risk}
-                </p>
-                <p className="mt-1 text-sm text-white/65">
-                  <span className="font-semibold text-[#5bc8f5]">
-                    Mitigation:{" "}
-                  </span>
-                  {r.mitigation}
-                </p>
+          <h2 className="mb-2 text-3xl font-extrabold uppercase tracking-tight text-primary sm:text-4xl">
+            Risk Management
+          </h2>
+          <p className="text-lg font-semibold text-on-surface-variant">
+            We do not ignore risk. We manage it.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {risks.map((r) => (
+            <div
+              key={r.risk}
+              className="rounded-xl border border-outline-variant/50 bg-surface-container-lowest p-5 shadow-sm transition-colors duration-200 hover:border-secondary/40"
+            >
+              <div className="mb-2 flex items-center justify-between">
+                <span className="text-base font-bold text-primary">{r.risk}</span>
+                <span className="rounded-full bg-surface-container px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-secondary">
+                  Mitigation
+                </span>
               </div>
-            ))}
-          </div>
+              <p className="text-sm text-on-surface-variant">{r.mitigation}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* ── The Invitation ── */}
-      <section className="bg-[#0d2a6e] text-white">
-        <div className="mx-auto w-full max-w-6xl px-6 py-16 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-yellow-400">
-            Let&apos;s Build Value Together
-          </p>
-          <h2 className="mt-3 text-4xl font-extrabold uppercase tracking-wide text-white sm:text-5xl">
+      {/* ── The Invitation & Commitment ── */}
+      <section className="relative overflow-hidden bg-primary py-space-2xl text-white" id="invitation">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary-container via-primary to-primary opacity-80" />
+        <div className="relative z-10 mx-auto max-w-4xl px-gutter-mobile text-center">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5">
+            <span className="h-2 w-2 rounded-full bg-secondary-fixed" />
+            <span className="text-xs font-bold uppercase tracking-widest text-secondary-fixed">
+              Let&apos;s Build Value Together
+            </span>
+          </div>
+          <h2 className="mb-4 text-4xl font-extrabold uppercase tracking-tight text-white sm:text-5xl">
             The Invitation
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-white/80">
+          <p className="mx-auto mb-10 max-w-2xl text-lg text-surface-container-high">
             Climax Group Limited is seeking a strategic Joint Venture Partner
             that understands the long-term value of real estate and is prepared
             to participate in a professionally structured development
             opportunity.
           </p>
-        </div>
 
-        {/* Commitment + Vision cards */}
-        <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-px sm:grid-cols-2">
-          <div className="bg-white px-10 py-12 dark:bg-zinc-900">
-            <h3 className="text-xl font-extrabold uppercase tracking-wide text-[#0d2a6e] dark:text-white">
-              Our Commitment
-            </h3>
-            <ul className="mt-5 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
-              {[
-                "Transparency.",
-                "Accountability.",
-                "Professional execution.",
-                "Protection of capital.",
-                "Shared value creation.",
-              ].map((item) => (
-                <li key={item} className="font-medium">
-                  {item}
-                </li>
-              ))}
-            </ul>
+          <div className="mb-12 grid grid-cols-1 gap-6 text-left md:grid-cols-2">
+            {/* Panel 1: Commitment */}
+            <div className="rounded-2xl bg-surface-container-lowest p-6 text-primary shadow-xl md:p-8">
+              <h3 className="mb-4 flex items-center gap-2 text-lg font-extrabold uppercase tracking-wide text-primary">
+                <span className="material-symbols-outlined text-secondary">handshake</span>
+                <span>Our Commitment</span>
+              </h3>
+              <ul className="space-y-3">
+                {[
+                  "Transparency.",
+                  "Accountability.",
+                  "Professional execution.",
+                  "Protection of capital.",
+                  "Shared value creation.",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm text-on-surface">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Panel 2: Vision */}
+            <div className="flex flex-col justify-between rounded-2xl bg-surface-container-lowest p-6 text-primary shadow-xl md:p-8">
+              <div>
+                <h3 className="mb-4 flex items-center gap-2 text-lg font-extrabold uppercase tracking-wide text-primary">
+                  <span className="material-symbols-outlined text-secondary">visibility</span>
+                  <span>Our Vision</span>
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    "Acquire strategically.",
+                    "Develop intelligently.",
+                    "Sell efficiently.",
+                    "Create lasting value.",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-sm text-on-surface">
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-4 border-t border-outline-variant/30 pt-4 text-sm font-semibold text-secondary">
+                Institutional integrity at every lifecycle stage.
+              </div>
+            </div>
           </div>
-          <div className="bg-white px-10 py-12 dark:bg-zinc-900">
-            <h3 className="text-xl font-extrabold uppercase tracking-wide text-[#0d2a6e] dark:text-white">
-              Our Vision
-            </h3>
-            <ul className="mt-5 space-y-2 text-right text-sm text-zinc-700 dark:text-zinc-300">
-              {[
-                "Acquire strategically.",
-                "Develop intelligently.",
-                "Sell efficiently.",
-                "Create lasting value.",
-              ].map((item) => (
-                <li key={item} className="font-medium">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
 
-        {/* Bottom CTA */}
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-5 px-6 py-14 text-center">
-          <p className="text-lg font-bold uppercase tracking-widest text-yellow-400">
-            Let&apos;s Build the Future Together.
-          </p>
-          <Link
-            href="/contact"
-            className="rounded-full bg-[#1487be] px-8 py-4 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-[#106a99]"
-          >
-            Contact Us Today →
-          </Link>
+          <div className="flex flex-col items-center justify-center gap-3">
+            <span className="text-sm font-bold uppercase tracking-widest text-secondary-fixed">
+              Let&apos;s Build the Future Together.
+            </span>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-xl bg-secondary-container px-8 py-4 text-sm font-semibold text-white shadow-xl shadow-secondary/40 transition-all active:scale-95 hover:bg-secondary"
+            >
+              <span>Contact Us Today</span>
+              <span className="material-symbols-outlined text-lg">arrow_forward</span>
+            </Link>
+          </div>
         </div>
       </section>
     </div>

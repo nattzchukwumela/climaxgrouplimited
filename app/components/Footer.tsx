@@ -32,35 +32,29 @@ const socialLinks = [
 
 const navLinks = [
   { label: "Home", href: "/" },
+  { label: "Services", href: "/#services" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a1f38] text-white">
-      {/* Main footer grid */}
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="border-t border-outline-variant/60 bg-surface-container-low">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-8 px-gutter-mobile py-space-xl md:grid-cols-3">
         {/* Brand */}
-        <div className="lg:col-span-2">
-          <p className="text-lg font-bold uppercase tracking-wide text-white">
-            Climax Group Limited
-          </p>
-          <p className="mt-1 text-xs text-white/50">
+        <div className="md:col-span-1">
+          <h4 className="text-xl font-bold text-primary">Climax Group Limited</h4>
+          <p className="mt-1 text-sm text-on-surface-variant">
             An extension of Climax Property Limited
           </p>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/65">
-            Building lasting real estate partnerships you can trust — from land
-            acquisition to full development, right across Nigeria.
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-on-surface-variant">
+            Building lasting real estate partnerships you can trust — from
+            land acquisition to full development, right across Nigeria.
           </p>
-          {/* CAC notice */}
-          <p className="mt-5 text-xs text-white/40">
-            CAC Registered — RC Number:{" "}
-            <span className="font-semibold text-white/60">
-              [RC Number — to be updated]
-            </span>
-          </p>
-          {/* Social links */}
+          <div className="mt-4 inline-flex items-center gap-2 rounded-md bg-surface-container px-3 py-1 text-sm font-medium text-primary">
+            <span className="material-symbols-outlined text-base text-secondary">shield</span>
+            <span>CAC Registered — RC Number: [RC Number — to be updated]</span>
+          </div>
           <div className="mt-5 flex gap-4">
             {socialLinks.map((s) => (
               <a
@@ -69,7 +63,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={s.label}
-                className="text-white/50 transition-colors hover:text-[#5bc8f5]"
+                className="text-on-surface-variant transition-colors hover:text-secondary"
               >
                 {s.icon}
               </a>
@@ -78,16 +72,16 @@ export default function Footer() {
         </div>
 
         {/* Navigation */}
-        <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-white/40">
+        <div className="md:pl-8">
+          <h5 className="text-xs font-bold uppercase tracking-wider text-primary">
             Navigation
-          </p>
-          <ul className="mt-4 space-y-2">
+          </h5>
+          <ul className="mt-4 space-y-2.5">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <Link
                   href={link.href}
-                  className="text-sm text-white/65 transition-colors hover:text-[#5bc8f5]"
+                  className="text-sm text-on-surface-variant transition-colors hover:text-secondary"
                 >
                   {link.label}
                 </Link>
@@ -98,67 +92,51 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-white/40">
+          <h5 className="text-xs font-bold uppercase tracking-wider text-primary">
             Contact
-          </p>
-          <ul className="mt-4 space-y-3 text-sm text-white/65">
-            <li>
-              <span className="block text-xs font-semibold uppercase tracking-wide text-white/40">
-                Phone
-              </span>
-              <a href="tel:+2349160005562" className="hover:text-[#5bc8f5]">
-                09160005562
-              </a>
+          </h5>
+          <div className="mt-4 space-y-3 text-sm text-on-surface-variant">
+            <div>
+              <div className="mb-0.5 text-xs font-bold uppercase text-primary">Phone</div>
+              <a href="tel:+2349160005562" className="hover:text-secondary">09160005562</a>
               {" / "}
-              <a href="tel:+2348054452870" className="hover:text-[#5bc8f5]">
-                08054452870
-              </a>
-            </li>
-            <li>
-              <span className="block text-xs font-semibold uppercase tracking-wide text-white/40">
-                Address
-              </span>
-              DDS Shopping Mall, KM 25 Airport Road, Rukpokwu
-            </li>
-            <li>
-              <span className="block text-xs font-semibold uppercase tracking-wide text-white/40">
-                Website
-              </span>
-              <a
-                href="https://www.climaxgrouplimited.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#5bc8f5]"
-              >
-                www.climaxgrouplimited.com
-              </a>
-            </li>
-            <li>
-              <span className="block text-xs font-semibold uppercase tracking-wide text-white/40">
-                Email
-              </span>
-              <a
-                href="mailto:info@climaxgrouplimited.com"
-                className="hover:text-[#5bc8f5]"
-              >
-                info@climaxgrouplimited.com
-              </a>
-            </li>
-          </ul>
+              <a href="tel:+2348054452870" className="hover:text-secondary">08054452870</a>
+            </div>
+            <div>
+              <div className="mb-0.5 text-xs font-bold uppercase text-primary">Address</div>
+              <p>DDS Shopping Mall, KM 25 Airport Road, Rukpokwu, Port Harcourt, Rivers State</p>
+            </div>
+            <div>
+              <div className="mb-0.5 text-xs font-bold uppercase text-primary">Website &amp; Email</div>
+              <p>
+                <a
+                  href="https://www.climaxgrouplimited.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-secondary"
+                >
+                  www.climaxgrouplimited.com
+                </a>
+              </p>
+              <p>
+                <a href="mailto:info@climaxgrouplimited.com" className="hover:text-secondary">
+                  info@climaxgrouplimited.com
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10 px-6 py-5">
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-2 text-center sm:flex-row">
-          <p className="text-xs text-white/35">
-            © {new Date().getFullYear()} Climax Group Limited. All rights
-            reserved.
-          </p>
-          <p className="text-xs font-semibold uppercase tracking-widest text-white/35">
-            Let&apos;s Build the Future Together.
-          </p>
-        </div>
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-3 border-t border-outline-variant/40 px-gutter-mobile py-space-md text-center text-sm text-on-surface-variant sm:flex-row sm:text-left">
+        <p>
+          © {new Date().getFullYear()} Climax Group Limited. CAC &amp; SCUML
+          Verified Institutional Real Estate Partner. All rights reserved.
+        </p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-secondary">
+          Let&apos;s Build the Future Together.
+        </p>
       </div>
     </footer>
   );
