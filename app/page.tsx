@@ -233,7 +233,7 @@ export default function Home() {
       </HeroSlideshow>
 
       {/* ── Key Metrics Trust Bar ── */}
-      <section className="relative z-20 -mt-6 mx-auto w-full max-w-7xl px-gutter-mobile">
+      <section className="mt-6 relative z-20 -mt-6 mx-auto w-full max-w-7xl px-gutter-mobile">
         <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
           {stats.map((stat) => (
             <div
